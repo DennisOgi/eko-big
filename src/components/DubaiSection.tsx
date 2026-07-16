@@ -120,7 +120,7 @@ export function DubaiSection() {
     <section
       id="dubai"
       ref={sectionRef}
-      className="bg-luxury texture-grain relative scroll-mt-24 overflow-hidden py-24 md:py-32"
+      className="bg-luxury texture-grain relative scroll-mt-24 overflow-hidden py-16 md:py-32"
       aria-labelledby={labelId}
     >
       <div
@@ -223,7 +223,7 @@ export function DubaiSection() {
                 aria-hidden
               />
 
-              <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col gap-4 p-5 md:flex-row md:items-end md:justify-between md:p-8 lg:p-10">
+              <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col gap-3 p-4 sm:gap-4 sm:p-5 md:flex-row md:items-end md:justify-between md:p-8 lg:p-10">
                 <div className="min-w-0 max-w-2xl">
                   <p className="font-[family-name:var(--font-display)] text-xs tracking-[0.32em] text-[var(--gold-light)]">
                     {String(active + 1).padStart(2, "0")}
@@ -242,15 +242,15 @@ export function DubaiSection() {
                       exit={reduce ? undefined : { opacity: 0, y: -8 }}
                       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                     >
-                      <p className="mt-3 text-xs tracking-[0.28em] text-[color-mix(in_srgb,var(--ivory)_70%,transparent)] uppercase">
+                      <p className="mt-2 text-[0.65rem] tracking-[0.22em] text-[color-mix(in_srgb,var(--ivory)_70%,transparent)] uppercase sm:mt-3 sm:text-xs sm:tracking-[0.28em]">
                         {venue.district}
                       </p>
-                      <h3 className="mt-2 font-[family-name:var(--font-display)] text-2xl leading-snug tracking-[0.04em] text-[var(--ivory)] md:text-3xl lg:text-4xl">
+                      <h3 className="mt-1.5 font-[family-name:var(--font-display)] text-xl leading-snug tracking-[0.04em] text-[var(--ivory)] sm:mt-2 sm:text-2xl md:text-3xl lg:text-4xl">
                         {venue.name}
                       </h3>
                     </motion.div>
                   </AnimatePresence>
-                  <p className="mt-3 text-sm font-light text-[rgba(255,255,255,0.72)]">
+                  <p className="mt-2 hidden text-sm font-light text-[rgba(255,255,255,0.72)] sm:mt-3 sm:block">
                     {dubaiIntro.role}
                   </p>
                 </div>
@@ -258,7 +258,7 @@ export function DubaiSection() {
                 <div className="flex shrink-0 items-center gap-2">
                   <button
                     type="button"
-                    className="border border-[color-mix(in_srgb,var(--gold)_45%,transparent)] bg-[color-mix(in_srgb,var(--green)_55%,transparent)] px-4 py-2.5 text-sm tracking-wide text-[var(--ivory)] backdrop-blur-sm transition-colors hover:border-[var(--gold-light)] hover:text-[var(--gold-light)] focus-visible:ring-2 focus-visible:ring-[var(--gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--green)]"
+                    className="min-h-11 border border-[color-mix(in_srgb,var(--gold)_45%,transparent)] bg-[color-mix(in_srgb,var(--green)_55%,transparent)] px-4 py-2.5 text-sm tracking-wide text-[var(--ivory)] backdrop-blur-sm transition-colors hover:border-[var(--gold-light)] hover:text-[var(--gold-light)] focus-visible:ring-2 focus-visible:ring-[var(--gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--green)]"
                     aria-label="Previous destination"
                     onClick={() => {
                       bumpPause()
@@ -269,7 +269,7 @@ export function DubaiSection() {
                   </button>
                   <button
                     type="button"
-                    className="border border-[color-mix(in_srgb,var(--gold)_45%,transparent)] bg-[color-mix(in_srgb,var(--green)_55%,transparent)] px-4 py-2.5 text-sm tracking-wide text-[var(--ivory)] backdrop-blur-sm transition-colors hover:border-[var(--gold-light)] hover:text-[var(--gold-light)] focus-visible:ring-2 focus-visible:ring-[var(--gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--green)]"
+                    className="min-h-11 border border-[color-mix(in_srgb,var(--gold)_45%,transparent)] bg-[color-mix(in_srgb,var(--green)_55%,transparent)] px-4 py-2.5 text-sm tracking-wide text-[var(--ivory)] backdrop-blur-sm transition-colors hover:border-[var(--gold-light)] hover:text-[var(--gold-light)] focus-visible:ring-2 focus-visible:ring-[var(--gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--green)]"
                     aria-label="Next destination"
                     onClick={() => {
                       bumpPause()
@@ -299,63 +299,82 @@ export function DubaiSection() {
 
             {/* Thumbnail strip */}
             <div className="mt-5 md:mt-6">
-              <div
-                ref={stripRef}
-                className="flex gap-2.5 overflow-x-auto overscroll-x-contain pb-2 [-ms-overflow-style:none] [scrollbar-width:none] md:gap-3 [&::-webkit-scrollbar]:hidden"
-                role="listbox"
-                aria-label="All Dubai venues"
-                aria-activedescendant={`dubai-venue-${venue.id}`}
-              >
-                {dubaiVenues.map((v, i) => {
-                  const selected = i === active
-                  return (
-                    <button
-                      key={v.id}
-                      id={`dubai-venue-${v.id}`}
-                      type="button"
-                      data-venue-index={i}
-                      role="option"
-                      aria-selected={selected}
-                      aria-label={`${v.name}, ${v.district}`}
-                      className={`group relative shrink-0 overflow-hidden outline-none transition-all duration-500 focus-visible:ring-2 focus-visible:ring-[var(--gold)] focus-visible:ring-offset-2 ${
-                        selected
-                          ? "ring-1 ring-[var(--gold)] ring-offset-2 ring-offset-[var(--ivory)]"
-                          : "opacity-70 hover:opacity-100"
-                      }`}
-                      style={{ width: "min(28vw, 7.5rem)", height: "4.75rem" }}
-                      onClick={() => {
-                        bumpPause()
-                        goTo(i)
-                      }}
-                    >
-                      <img
-                        src={v.image}
-                        alt=""
-                        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                        style={{ objectPosition: v.position ?? "center center" }}
-                        loading="lazy"
-                        decoding="async"
-                        aria-hidden
-                      />
-                      <div
-                        className={`pointer-events-none absolute inset-0 transition-colors ${
+              <div className="relative">
+                <div
+                  className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[var(--ivory)] to-transparent md:hidden"
+                  aria-hidden
+                />
+                <div
+                  ref={stripRef}
+                  className="dubai-thumbs flex gap-2.5 overflow-x-auto overscroll-x-contain pb-2 pe-10 [-ms-overflow-style:none] [scrollbar-width:none] md:gap-3 md:pe-0 [&::-webkit-scrollbar]:hidden"
+                  role="listbox"
+                  aria-label="All Dubai venues"
+                  aria-activedescendant={`dubai-venue-${venue.id}`}
+                >
+                  {dubaiVenues.map((v, i) => {
+                    const selected = i === active
+                    return (
+                      <button
+                        key={v.id}
+                        id={`dubai-venue-${v.id}`}
+                        type="button"
+                        data-venue-index={i}
+                        role="option"
+                        aria-selected={selected}
+                        aria-label={`${v.name}, ${v.district}`}
+                        className={`group relative shrink-0 overflow-hidden outline-none transition-all duration-500 focus-visible:ring-2 focus-visible:ring-[var(--gold)] focus-visible:ring-offset-2 ${
                           selected
-                            ? "bg-[color-mix(in_srgb,var(--green)_25%,transparent)]"
-                            : "bg-[color-mix(in_srgb,var(--green)_45%,transparent)] group-hover:bg-[color-mix(in_srgb,var(--green)_20%,transparent)]"
+                            ? "ring-1 ring-[var(--gold)] ring-offset-2 ring-offset-[var(--ivory)]"
+                            : "opacity-70 hover:opacity-100"
                         }`}
-                        aria-hidden
-                      />
-                      <span className="pointer-events-none absolute bottom-1 left-1.5 font-[family-name:var(--font-display)] text-[0.65rem] tracking-[0.18em] text-[var(--gold-light)]">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                    </button>
-                  )
-                })}
+                        style={{
+                          width: "min(30vw, 7.5rem)",
+                          height: "5rem",
+                          minWidth: "5.25rem",
+                        }}
+                        onClick={() => {
+                          bumpPause()
+                          goTo(i)
+                        }}
+                      >
+                        <img
+                          src={v.image}
+                          alt=""
+                          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                          style={{ objectPosition: v.position ?? "center center" }}
+                          loading="lazy"
+                          decoding="async"
+                          aria-hidden
+                        />
+                        <div
+                          className={`pointer-events-none absolute inset-0 transition-colors ${
+                            selected
+                              ? "bg-[color-mix(in_srgb,var(--green)_25%,transparent)]"
+                              : "bg-[color-mix(in_srgb,var(--green)_45%,transparent)] group-hover:bg-[color-mix(in_srgb,var(--green)_20%,transparent)]"
+                          }`}
+                          aria-hidden
+                        />
+                        <span className="pointer-events-none absolute bottom-1 left-1.5 font-[family-name:var(--font-display)] text-[0.65rem] tracking-[0.18em] text-[var(--gold-light)]">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                      </button>
+                    )
+                  })}
+                </div>
               </div>
-              <p className="mt-3 text-xs tracking-[0.2em] text-[color-mix(in_srgb,var(--ink)_45%,transparent)] uppercase">
-                {reduce
-                  ? "Select a venue · arrows to step"
-                  : "Autoplay · hover to pause · arrows · thumbnails"}
+              <p className="mt-3 text-[0.65rem] tracking-[0.16em] text-[color-mix(in_srgb,var(--ink)_45%,transparent)] uppercase sm:text-xs sm:tracking-[0.2em]">
+                {reduce ? (
+                  "Select a venue · swipe thumbs"
+                ) : (
+                  <>
+                    <span className="md:hidden">
+                      Autoplay · tap thumbs · swipe for more
+                    </span>
+                    <span className="hidden md:inline">
+                      Autoplay · hover to pause · arrows · thumbnails
+                    </span>
+                  </>
+                )}
               </p>
             </div>
           </div>

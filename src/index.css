@@ -40,12 +40,20 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  overflow-x: hidden;
+  overflow-x: clip;
   font-family: var(--font-sans);
   color: var(--ink);
   background: var(--ivory);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* Horizontal rails: keep last chip fully reachable on touch */
+.credentials-rail,
+.press-thumbs,
+.dubai-thumbs {
+  -webkit-overflow-scrolling: touch;
+  scroll-padding-inline: 0.5rem;
 }
 
 ::selection {

@@ -4,7 +4,7 @@ import { Reveal, ScrollAccent } from "./Reveal"
 
 export function ContactSection() {
   return (
-    <section id="contact" className="scroll-mt-24 bg-[var(--ivory)] py-24 md:py-28">
+    <section id="contact" className="scroll-mt-24 overflow-hidden bg-[var(--ivory)] py-16 md:py-28">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <Reveal>
           <div className="grid items-end gap-10 lg:grid-cols-[1.2fr_0.8fr]">
@@ -12,11 +12,11 @@ export function ContactSection() {
               <p className="text-xs font-medium tracking-[0.3em] text-[var(--gold-deep)] uppercase">
                 Connect
               </p>
-              <h2 className="heading-shimmer mt-3 font-[family-name:var(--font-display)] text-3xl tracking-[0.04em] text-[var(--green)] md:text-5xl">
+              <h2 className="heading-shimmer mt-3 font-[family-name:var(--font-display)] text-[1.75rem] tracking-[0.04em] text-[var(--green)] sm:text-3xl md:text-5xl">
                 Contact
               </h2>
               <ScrollAccent />
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-[var(--ink)]/80">
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-[var(--ink)]/80 sm:text-lg">
                 For executive introductions, trade partnerships, speaking
                 engagements, or CEFON collaboration — please reach out directly.
                 All enquiries are handled with discretion.
@@ -30,7 +30,7 @@ export function ContactSection() {
                   <dd className="mt-1">
                     <a
                       href={contact.phoneHref}
-                      className="text-xl text-[var(--green)] transition-colors duration-300 hover:text-[var(--gold-deep)]"
+                      className="inline-flex min-h-11 items-center text-lg text-[var(--green)] transition-colors duration-300 hover:text-[var(--gold-deep)] sm:text-xl"
                     >
                       {contact.phone}
                     </a>
@@ -43,7 +43,7 @@ export function ContactSection() {
                   <dd className="mt-1">
                     <a
                       href={contact.emailHref}
-                      className="text-xl text-[var(--green)] transition-colors duration-300 hover:text-[var(--gold-deep)]"
+                      className="inline-flex min-h-11 max-w-full items-center break-all text-base text-[var(--green)] transition-colors duration-300 hover:text-[var(--gold-deep)] sm:text-lg md:text-xl"
                     >
                       {contact.email}
                     </a>
@@ -58,7 +58,7 @@ export function ContactSection() {
                       href={contact.facebookHref}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-xl text-[var(--green)] transition-colors duration-300 hover:text-[var(--gold-deep)]"
+                      className="inline-flex min-h-11 items-center text-lg text-[var(--green)] transition-colors duration-300 hover:text-[var(--gold-deep)] sm:text-xl"
                     >
                       {contact.facebook}
                     </a>
@@ -68,7 +68,7 @@ export function ContactSection() {
 
               <MagneticAnchor
                 href={contact.emailHref}
-                className="btn-outline-dark btn-lux mt-10"
+                className="btn-outline-dark btn-lux mt-10 w-full justify-center sm:w-auto"
                 strength={0.2}
               >
                 Send a message

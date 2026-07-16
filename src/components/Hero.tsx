@@ -319,12 +319,12 @@ export function Hero() {
       />
 
       <motion.div
-        className="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-5 pb-20 pt-28 md:px-8 md:pb-24 md:pt-28 lg:justify-end lg:pb-[min(18vh,7.5rem)] lg:pt-32"
+        className="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-5 pb-[max(5rem,calc(4.5rem+env(safe-area-inset-bottom)))] pt-[max(6.5rem,calc(5.5rem+env(safe-area-inset-top)))] md:px-8 md:pb-24 md:pt-28 lg:justify-end lg:pb-[min(18vh,7.5rem)] lg:pt-32"
         style={reduce ? undefined : { y: contentY, opacity: contentOpacity }}
       >
-        <div className="hero-copy max-w-[18rem] sm:max-w-md lg:max-w-[26rem] xl:max-w-[30rem]">
+        <div className="hero-copy max-w-[17.5rem] sm:max-w-md lg:max-w-[26rem] xl:max-w-[30rem]">
           <motion.h1
-            className="font-[family-name:var(--font-display)] text-5xl leading-[1.05] font-semibold tracking-[0.05em] text-[var(--ivory)] [text-shadow:0_2px_32px_color-mix(in_srgb,var(--green)_65%,transparent)] sm:text-6xl md:text-6xl lg:text-7xl xl:text-[4.75rem]"
+            className="font-[family-name:var(--font-display)] text-[2.65rem] leading-[1.05] font-semibold tracking-[0.05em] text-[var(--ivory)] [text-shadow:0_2px_32px_color-mix(in_srgb,var(--green)_65%,transparent)] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[4.75rem]"
             initial={reduce ? false : { opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.15 }}
@@ -335,7 +335,7 @@ export function Hero() {
           </motion.h1>
 
           <motion.p
-            className="mt-5 max-w-md text-lg font-light tracking-wide text-[color-mix(in_srgb,var(--ivory)_92%,var(--gold-light))] [text-shadow:0_1px_18px_color-mix(in_srgb,var(--green)_55%,transparent)] md:mt-6 md:text-xl"
+            className="mt-4 max-w-md text-base font-light tracking-wide text-[color-mix(in_srgb,var(--ivory)_92%,var(--gold-light))] [text-shadow:0_1px_18px_color-mix(in_srgb,var(--green)_55%,transparent)] sm:mt-5 sm:text-lg md:mt-6 md:text-xl"
             initial={reduce ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35 }}
@@ -344,7 +344,7 @@ export function Hero() {
           </motion.p>
 
           <motion.p
-            className="mt-3 text-xs font-medium tracking-[0.28em] text-[color-mix(in_srgb,var(--gold-light)_85%,var(--ivory))] uppercase [text-shadow:0_1px_12px_color-mix(in_srgb,var(--green)_50%,transparent)]"
+            className="mt-3 text-[0.65rem] font-medium tracking-[0.24em] text-[color-mix(in_srgb,var(--gold-light)_85%,var(--ivory))] uppercase [text-shadow:0_1px_12px_color-mix(in_srgb,var(--green)_50%,transparent)] sm:text-xs sm:tracking-[0.28em]"
             initial={reduce ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.48 }}
@@ -353,17 +353,20 @@ export function Hero() {
           </motion.p>
 
           <motion.div
-            className="mt-9 flex flex-wrap gap-4 md:mt-10"
+            className="mt-8 flex w-full max-w-sm flex-col gap-3 sm:mt-9 sm:max-w-none sm:flex-row sm:flex-wrap sm:gap-4 md:mt-10"
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.55 }}
           >
-            <MagneticAnchor href="#dubai" className="btn-primary btn-lux">
+            <MagneticAnchor
+              href="#dubai"
+              className="btn-primary btn-lux w-full justify-center sm:w-auto"
+            >
               Dubai chapter
             </MagneticAnchor>
             <MagneticAnchor
               href="#about"
-              className="btn-ghost btn-lux-ghost"
+              className="btn-ghost btn-lux-ghost w-full justify-center sm:w-auto"
               strength={0.22}
             >
               Meet the founder

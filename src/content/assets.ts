@@ -24,6 +24,14 @@ export const media = {
     sira: "/media/credential-sira.jpeg",
     cac: "/media/credential-cac.jpeg",
   },
+  press: {
+    archive: "/media/press/ekobig-press-archive.pdf",
+    pages: [
+      "/media/press/pages/page-01.jpg",
+      "/media/press/pages/page-02.jpg",
+      "/media/press/pages/page-03.jpg",
+    ],
+  },
 } as const
 
 export const contact = {

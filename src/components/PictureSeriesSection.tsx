@@ -90,8 +90,8 @@ function RunwayFrame({
           : "opacity-[0.62] md:opacity-[0.55]"
       }`}
       style={{
-        width: "min(72vw, 26rem)",
-        height: "min(58vh, 32rem)",
+        width: "min(78vw, 26rem)",
+        height: "min(52vh, 32rem)",
         x: frameX,
         y: frameY,
       }}
@@ -441,7 +441,7 @@ export function PictureSeriesSection() {
             className={
               reduce
                 ? "mt-12 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-                : "relative mt-8 min-h-[min(58vh,32rem)] flex-1 touch-pan-y"
+                : "relative mt-8 min-h-[min(52vh,32rem)] flex-1 touch-pan-y"
             }
             role="listbox"
             aria-label="Portrait gallery"
@@ -507,7 +507,7 @@ export function PictureSeriesSection() {
           </div>
 
           <div
-            className="relative z-20 mt-6 flex flex-wrap items-center gap-3 pb-2"
+            className="relative z-20 mt-6 flex flex-wrap items-center gap-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] sm:gap-3"
             onPointerEnter={() => {
               if (!reduce) setHoldingPause(true)
             }}
@@ -519,10 +519,8 @@ export function PictureSeriesSection() {
               <button
                 key={frame.index}
                 type="button"
-                className={`relative h-1.5 overflow-hidden transition-all duration-500 focus-visible:ring-2 focus-visible:ring-[var(--gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--green)] ${
-                  active === i
-                    ? "w-11 bg-[color-mix(in_srgb,var(--gold)_35%,transparent)]"
-                    : "w-3 bg-[color-mix(in_srgb,var(--ivory)_28%,transparent)] hover:bg-[color-mix(in_srgb,var(--gold)_55%,transparent)]"
+                className={`relative flex h-8 items-center justify-center overflow-hidden transition-all duration-500 focus-visible:ring-2 focus-visible:ring-[var(--gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--green)] ${
+                  active === i ? "w-12" : "w-6"
                 }`}
                 aria-label={`Go to ${frame.title}`}
                 aria-current={active === i ? "true" : undefined}
@@ -531,23 +529,41 @@ export function PictureSeriesSection() {
                   goTo(i)
                 }}
               >
-                {active === i && !reduce && (
-                  <motion.span
-                    className="absolute inset-y-0 left-0 bg-[var(--gold-light)]"
-                    initial={{ width: "0%" }}
-                    animate={{ width: "100%" }}
-                    transition={{ duration: SERIES_AUTOPLAY_MS / 1000, ease: "linear" }}
-                    key={`tick-${i}-${active}`}
-                  />
-                )}
+                <span
+                  className={`relative block h-1.5 w-full overflow-hidden ${
+                    active === i
+                      ? "bg-[color-mix(in_srgb,var(--gold)_35%,transparent)]"
+                      : "bg-[color-mix(in_srgb,var(--ivory)_28%,transparent)]"
+                  }`}
+                >
+                  {active === i && !reduce && (
+                    <motion.span
+                      className="absolute inset-y-0 left-0 bg-[var(--gold-light)]"
+                      initial={{ width: "0%" }}
+                      animate={{ width: "100%" }}
+                      transition={{
+                        duration: SERIES_AUTOPLAY_MS / 1000,
+                        ease: "linear",
+                      }}
+                      key={`tick-${i}-${active}`}
+                    />
+                  )}
+                </span>
               </button>
             ))}
-            <p className="ml-auto text-xs tracking-[0.22em] text-[rgba(255,255,255,0.55)] uppercase">
+            <p className="ml-auto w-full text-[0.65rem] tracking-[0.16em] text-[rgba(255,255,255,0.55)] uppercase sm:w-auto sm:text-xs sm:tracking-[0.22em]">
               {reduce
-                ? "Swipe to travel · arrows to step"
+                ? "Swipe to travel"
                 : holding
-                  ? "Paused · drag or arrows to step"
-                  : "Autoplay · drag · arrows · dots"}
+                  ? "Paused · drag to step"
+                  : (
+                    <>
+                      <span className="md:hidden">Autoplay · swipe · dots</span>
+                      <span className="hidden md:inline">
+                        Autoplay · drag · arrows · dots
+                      </span>
+                    </>
+                  )}
             </p>
           </div>
         </div>

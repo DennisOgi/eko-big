@@ -114,9 +114,9 @@ export function SplashScreen() {
             />
           )}
 
-          <div className="relative z-10 flex flex-col items-center px-6 text-center">
+          <div className="relative z-10 flex flex-col items-center px-5 text-center sm:px-6">
             <motion.p
-              className="font-[family-name:var(--font-display)] text-[clamp(2.75rem,9vw,5.5rem)] font-semibold leading-none tracking-[0.28em] text-[var(--ivory)]"
+              className="font-[family-name:var(--font-display)] text-[clamp(2.35rem,9vw,5.5rem)] font-semibold leading-none tracking-[0.22em] text-[var(--ivory)] sm:tracking-[0.28em]"
               initial={reduce ? false : { opacity: 0, y: 16, letterSpacing: "0.4em" }}
               animate={{ opacity: 1, y: 0, letterSpacing: "0.28em" }}
               transition={{
@@ -181,7 +181,7 @@ export function SplashScreen() {
           </div>
 
           <motion.p
-            className="pointer-events-none absolute bottom-8 left-0 right-0 text-center text-[0.65rem] tracking-[0.28em] text-[color-mix(in_srgb,var(--ivory)_40%,transparent)] uppercase md:bottom-10"
+            className="pointer-events-none absolute bottom-[max(2rem,env(safe-area-inset-bottom))] left-0 right-0 text-center text-[0.65rem] tracking-[0.28em] text-[color-mix(in_srgb,var(--ivory)_40%,transparent)] uppercase md:bottom-10"
             initial={reduce ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{

@@ -6,24 +6,24 @@ import { VideoPlayer } from "./VideoPlayer"
 
 export function CefonSection() {
   return (
-    <section id="cefon" className="bg-luxury texture-grain relative scroll-mt-24 py-24 md:py-32">
+    <section id="cefon" className="bg-luxury texture-grain relative scroll-mt-24 overflow-hidden py-16 md:py-32">
       <div className="relative z-10 mx-auto max-w-6xl px-5 md:px-8">
         <Reveal>
-          <div className="flex flex-col items-start gap-8 md:flex-row md:items-center md:gap-12">
+          <div className="flex flex-col items-start gap-6 sm:gap-8 md:flex-row md:items-center md:gap-12">
             <img
               src={media.cefonLogo}
               alt="Clean Earth Foundation Nigeria logo — Beautify Our World"
-              className="h-36 w-36 object-cover shadow-[0_16px_40px_color-mix(in_srgb,var(--gold)_25%,transparent)] transition duration-500 hover:shadow-[0_20px_48px_color-mix(in_srgb,var(--gold)_40%,transparent)] hover:scale-[1.02] md:h-44 md:w-44"
+              className="h-28 w-28 object-cover shadow-[0_16px_40px_color-mix(in_srgb,var(--gold)_25%,transparent)] transition duration-500 hover:shadow-[0_20px_48px_color-mix(in_srgb,var(--gold)_40%,transparent)] hover:scale-[1.02] sm:h-36 sm:w-36 md:h-44 md:w-44"
             />
             <div>
               <p className="text-xs font-medium tracking-[0.3em] text-[var(--gold-deep)] uppercase">
                 Social impact
               </p>
-              <h2 className="heading-shimmer mt-3 font-[family-name:var(--font-display)] text-3xl tracking-[0.04em] text-[var(--green)] md:text-5xl">
+              <h2 className="heading-shimmer mt-3 font-[family-name:var(--font-display)] text-[1.75rem] tracking-[0.04em] text-[var(--green)] sm:text-3xl md:text-5xl">
                 {cefon.name}
               </h2>
-              <p className="mt-3 text-xl text-[var(--gold-deep)] md:text-2xl">{cefon.tagline}</p>
-              <p className="mt-2 text-lg text-[var(--green-mid)]">{cefon.subtitle}</p>
+              <p className="mt-3 text-lg text-[var(--gold-deep)] sm:text-xl md:text-2xl">{cefon.tagline}</p>
+              <p className="mt-2 text-base text-[var(--green-mid)] sm:text-lg">{cefon.subtitle}</p>
             </div>
           </div>
           <ScrollAccent className="mt-8" />

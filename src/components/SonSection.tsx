@@ -6,13 +6,13 @@ import { VideoPlayer } from "./VideoPlayer"
 
 export function SonSection() {
   return (
-    <section id="son" className="scroll-mt-24 bg-[var(--green)] texture-grain relative py-24 text-[var(--ivory)] md:py-32">
+    <section id="son" className="scroll-mt-24 overflow-hidden bg-[var(--green)] texture-grain relative py-16 text-[var(--ivory)] md:py-32">
       <div className="relative z-10 mx-auto max-w-6xl px-5 md:px-8">
         <Reveal>
           <p className="text-xs font-medium tracking-[0.3em] text-[var(--gold-light)] uppercase">
             Creative initiative
           </p>
-          <h2 className="heading-shimmer-light mt-4 max-w-4xl font-[family-name:var(--font-display)] text-3xl leading-tight tracking-[0.03em] md:text-5xl">
+          <h2 className="heading-shimmer-light mt-4 max-w-4xl font-[family-name:var(--font-display)] text-[1.75rem] leading-tight tracking-[0.03em] sm:text-3xl md:text-5xl">
             {son.title}
           </h2>
           <p className="mt-4 text-[var(--gold-light)]">{son.producedBy}</p>

@@ -37,17 +37,17 @@ export function ChangeSection() {
   return (
     <section
       id="change"
-      className="scroll-mt-24 bg-[var(--green)] texture-grain relative py-24 text-[var(--ivory)] md:py-32"
+      className="scroll-mt-24 overflow-hidden bg-[var(--green)] texture-grain relative py-16 text-[var(--ivory)] md:py-32"
     >
       <div className="relative z-10 mx-auto max-w-6xl px-5 md:px-8">
         <Reveal>
           <p className="text-xs font-medium tracking-[0.3em] text-[var(--gold-light)] uppercase">
             {change.eyebrow}
           </p>
-          <h2 className="heading-shimmer-light mt-4 max-w-4xl font-[family-name:var(--font-display)] text-3xl leading-tight tracking-[0.04em] md:text-5xl lg:text-6xl">
+          <h2 className="heading-shimmer-light mt-4 max-w-4xl font-[family-name:var(--font-display)] text-[1.75rem] leading-tight tracking-[0.04em] sm:text-3xl md:text-5xl lg:text-6xl">
             {change.title}
           </h2>
-          <p className="mt-4 text-xl text-[var(--gold-light)] md:text-2xl">{change.tagline}</p>
+          <p className="mt-4 text-lg text-[var(--gold-light)] sm:text-xl md:text-2xl">{change.tagline}</p>
           <p className="mt-2 text-[rgba(255,255,255,0.8)]">{change.byline}</p>
           <ScrollAccent className="mt-6" />
         </Reveal>

@@ -5,31 +5,31 @@ import { Reveal, ScrollAccent } from "./Reveal"
 
 export function AboutSection() {
   return (
-    <section id="about" className="bg-luxury texture-grain relative scroll-mt-24 py-24 md:py-32">
+    <section id="about" className="bg-luxury texture-grain relative scroll-mt-24 overflow-hidden py-16 md:py-32">
       <div className="relative z-10 mx-auto max-w-6xl px-5 md:px-8">
         <Reveal>
           <p className="text-xs font-medium tracking-[0.3em] text-[var(--gold-deep)] uppercase">
             Profile
           </p>
-          <h2 className="heading-shimmer mt-3 font-[family-name:var(--font-display)] text-3xl tracking-[0.04em] text-[var(--green)] md:text-5xl">
+          <h2 className="heading-shimmer mt-3 font-[family-name:var(--font-display)] text-[1.75rem] tracking-[0.04em] text-[var(--green)] sm:text-3xl md:text-5xl">
             {about.title}
           </h2>
           <ScrollAccent />
         </Reveal>
 
         <Reveal delay={0.06}>
-          <p className="mt-6 max-w-3xl text-sm font-medium tracking-[0.14em] text-[var(--gold-deep)] uppercase md:text-[0.8rem]">
+          <p className="mt-6 max-w-3xl text-[0.7rem] font-medium tracking-[0.12em] text-[var(--gold-deep)] uppercase sm:text-sm sm:tracking-[0.14em] md:text-[0.8rem]">
             CEO · ECKOBIG TRINITY GLOBAL
           </p>
         </Reveal>
 
         <Reveal delay={0.08}>
-          <p className="mt-4 max-w-4xl text-base leading-relaxed text-[var(--green-mid)] md:text-lg">
+          <p className="mt-4 max-w-4xl text-sm leading-relaxed text-[var(--green-mid)] sm:text-base md:text-lg">
             {about.roles.join("  ·  ")}
           </p>
         </Reveal>
 
-        <div className="mt-12 grid items-start gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16">
+        <div className="mt-10 grid items-start gap-8 sm:mt-12 sm:gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16">
           <Reveal className="relative">
             <figure className="media-lift group overflow-hidden">
               <img
@@ -68,7 +68,7 @@ export function AboutSection() {
                 <p className="mt-4 text-base leading-relaxed text-[var(--ink)]/80 md:text-lg">
                   {about.pullLead}
                 </p>
-                <p className="mt-3 font-[family-name:var(--font-display)] text-2xl leading-snug text-[var(--green)] md:text-3xl">
+                <p className="mt-3 font-[family-name:var(--font-display)] text-xl leading-snug text-[var(--green)] sm:text-2xl md:text-3xl">
                   “{about.pullQuote}”
                 </p>
               </blockquote>
@@ -99,8 +99,8 @@ export function AboutSection() {
         </Reveal>
 
         <Reveal>
-          <figure className="quote-lift mt-16 border-y border-[color-mix(in_srgb,var(--gold)_35%,transparent)] py-12 text-center">
-            <blockquote className="mx-auto max-w-3xl font-[family-name:var(--font-display)] text-2xl leading-relaxed text-[var(--green)] md:text-3xl">
+          <figure className="quote-lift mt-12 border-y border-[color-mix(in_srgb,var(--gold)_35%,transparent)] py-10 text-center sm:mt-16 sm:py-12">
+            <blockquote className="mx-auto max-w-3xl font-[family-name:var(--font-display)] text-xl leading-relaxed text-[var(--green)] sm:text-2xl md:text-3xl">
               “{about.closingQuote}”
             </blockquote>
             <figcaption className="mt-6 text-sm tracking-[0.25em] text-[var(--gold-deep)] uppercase">

@@ -4,6 +4,8 @@
  */
 export const sections = [
   { id: "about", label: "About", component: "AboutSection" },
+  { id: "credentials", label: "Credentials", component: "CredentialsRail" },
+  { id: "press", label: "Press", component: "PressSection" },
   { id: "dubai", label: "Dubai", component: "DubaiSection" },
   { id: "series", label: "Portraits", component: "PictureSeriesSection" },
   { id: "change", label: "CHANGE", component: "ChangeSection" },
