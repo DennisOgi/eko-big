@@ -11,7 +11,7 @@ import {
   useState,
   type KeyboardEvent,
 } from "react"
-import { dubaiIntro, dubaiVenues } from "../content/dubai"
+import { dubaiDistricts, dubaiIntro, dubaiVenues } from "../content/dubai"
 import { Reveal, ScrollAccent } from "./Reveal"
 
 const AUTOPLAY_MS = 5600
@@ -144,13 +144,30 @@ export function DubaiSection() {
             {dubaiIntro.title}
           </h2>
           <ScrollAccent />
-          <p className="mt-4 text-sm font-medium tracking-[0.12em] text-[var(--green)] md:text-base">
-            {dubaiIntro.era}
+          <p className="mt-5 text-sm font-medium tracking-[0.16em] text-[var(--green)] md:text-base">
+            {dubaiIntro.role}
           </p>
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-[var(--green-mid)] md:text-lg">
             {dubaiIntro.lead}
           </p>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[color-mix(in_srgb,var(--ink)_62%,transparent)] md:text-[0.95rem]">
+          <ul
+            className="mt-5 flex flex-wrap gap-x-4 gap-y-2"
+            aria-label="Primary Dubai corridors"
+          >
+            {dubaiDistricts.map((district) => (
+              <li
+                key={district}
+                className="text-[0.7rem] tracking-[0.22em] text-[color-mix(in_srgb,var(--ink)_48%,transparent)] uppercase"
+              >
+                <span
+                  className="mr-2 inline-block h-px w-3 align-middle bg-[var(--gold)]"
+                  aria-hidden
+                />
+                {district}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-[color-mix(in_srgb,var(--ink)_62%,transparent)] md:text-[0.95rem]">
             {dubaiIntro.credibility}
           </p>
           <p className="mt-3 text-sm tracking-wide text-[color-mix(in_srgb,var(--ink)_55%,transparent)]">
@@ -234,7 +251,7 @@ export function DubaiSection() {
                     </motion.div>
                   </AnimatePresence>
                   <p className="mt-3 text-sm font-light text-[rgba(255,255,255,0.72)]">
-                    {dubaiIntro.era}
+                    {dubaiIntro.role}
                   </p>
                 </div>
 
@@ -346,9 +363,7 @@ export function DubaiSection() {
 
         <Reveal delay={0.12}>
           <p className="mt-10 max-w-2xl border-l-2 border-[var(--gold)] pl-5 text-sm leading-relaxed text-[var(--green-mid)] md:pl-6 md:text-base">
-            This chapter shaped a lasting standard of operational excellence and
-            hospitality — the same discipline that now informs leadership at
-            ECKOBIG TRINITY GLOBAL.
+            {dubaiIntro.closing}
           </p>
         </Reveal>
       </div>

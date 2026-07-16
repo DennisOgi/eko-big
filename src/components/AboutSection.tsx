@@ -65,10 +65,12 @@ export function AboutSection() {
                 <p className="text-sm tracking-[0.2em] text-[var(--gold-deep)] uppercase">
                   Philosophy
                 </p>
-                <p className="mt-4 font-[family-name:var(--font-display)] text-2xl leading-snug text-[var(--green)] md:text-3xl">
+                <p className="mt-4 text-base leading-relaxed text-[var(--ink)]/80 md:text-lg">
+                  {about.pullLead}
+                </p>
+                <p className="mt-3 font-[family-name:var(--font-display)] text-2xl leading-snug text-[var(--green)] md:text-3xl">
                   “{about.pullQuote}”
                 </p>
-                <p className="mt-4 text-[var(--ink)]/75">{about.pullLead}</p>
               </blockquote>
             </Reveal>
           </div>
@@ -105,67 +107,6 @@ export function AboutSection() {
               — {about.closingAttribution}
             </figcaption>
           </figure>
-        </Reveal>
-
-        <Reveal>
-          <div className="mt-16">
-            <p className="text-xs tracking-[0.28em] text-[var(--gold-deep)] uppercase">
-              Credentials
-            </p>
-            <div className="mt-6 grid gap-4 sm:grid-cols-3">
-              <a
-                href={media.credentials.cac}
-                target="_blank"
-                rel="noreferrer"
-                className="media-lift group block overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)] focus-visible:ring-offset-4"
-              >
-                <img
-                  src={media.credentials.cac}
-                  alt="CAC Certificate of Registration — ECKOBIG TRINITY GLOBAL"
-                  className="h-48 w-full object-cover object-top transition duration-500 group-hover:scale-[1.04] sm:h-56"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <p className="mt-2 text-sm text-[var(--green-mid)] transition-colors group-hover:text-[var(--gold-deep)]">
-                  CAC Registration
-                </p>
-              </a>
-              <a
-                href={media.credentials.employment}
-                target="_blank"
-                rel="noreferrer"
-                className="media-lift group block overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)] focus-visible:ring-offset-4"
-              >
-                <img
-                  src={media.credentials.employment}
-                  alt="Employment certificate from Private Limousine LLC, Dubai"
-                  className="h-48 w-full object-cover object-top transition duration-500 group-hover:scale-[1.04] sm:h-56"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <p className="mt-2 text-sm text-[var(--green-mid)] transition-colors group-hover:text-[var(--gold-deep)]">
-                  Dubai Employment
-                </p>
-              </a>
-              <a
-                href={media.credentials.sira}
-                target="_blank"
-                rel="noreferrer"
-                className="media-lift group block overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)] focus-visible:ring-offset-4"
-              >
-                <img
-                  src={media.credentials.sira}
-                  alt="SIRA Security Guard Training Certificate, Dubai"
-                  className="h-48 w-full object-cover object-top transition duration-500 group-hover:scale-[1.04] sm:h-56"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <p className="mt-2 text-sm text-[var(--green-mid)] transition-colors group-hover:text-[var(--gold-deep)]">
-                  SIRA Training
-                </p>
-              </a>
-            </div>
-          </div>
         </Reveal>
       </div>
     </section>

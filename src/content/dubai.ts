@@ -12,14 +12,25 @@ export type DubaiVenue = {
   position?: string
 }
 
+/** Light framing labels — major corridors, not a filter UI */
+export const dubaiDistricts = [
+  "Downtown",
+  "Marina",
+  "Jumeirah",
+  "DIFC",
+] as const
+
 export const dubaiIntro = {
-  eyebrow: "Dubai · UAE",
+  eyebrow: "Dubai Chapter · UAE",
   title: "Luxury Hospitality Destinations",
+  role: "Fleet Supervisor · Private Limousine LLC",
   lead:
-    "As Fleet Supervisor with Private Limousine LLC, ECKOBIG ANTHONY led executive chauffeur operations across Dubai’s defining luxury hotels and premium destinations — from Burj Khalifa and Downtown to Marina, Jumeirah, DIFC, and the Palm.",
-  note: "Twenty-one hospitality and lifestyle venues — a working map of world-class service standards.",
-  era: "Private Limousine LLC · Fleet Supervisor",
-  credibility: "Operational excellence forged in Dubai’s luxury hospitality market.",
+    "Executive chauffeur operations across Dubai’s defining luxury hospitality destinations — Burj Khalifa and Downtown, Marina, Jumeirah, DIFC, and the Palm — delivering the standard expected by international guests and institutional clients.",
+  credibility:
+    "A working map of world-class service: precision timing, discreet presence, and operational excellence forged in one of the world’s most demanding luxury markets.",
+  note: "Twenty-one hotels and premium venues — the chapter that still informs leadership at ECKOBIG TRINITY GLOBAL.",
+  closing:
+    "This chapter shaped a lasting standard of operational excellence and hospitality — the same discipline that now informs leadership at ECKOBIG TRINITY GLOBAL.",
 } as const
 
 export const dubaiVenues: DubaiVenue[] = [

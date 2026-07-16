@@ -3,6 +3,7 @@ import { AboutSection } from "./components/AboutSection"
 import { CefonSection } from "./components/CefonSection"
 import { ChangeSection } from "./components/ChangeSection"
 import { ContactSection } from "./components/ContactSection"
+import { CredentialsRail } from "./components/CredentialsRail"
 import { DubaiSection } from "./components/DubaiSection"
 import { Hero } from "./components/Hero"
 import { Nav } from "./components/Nav"
@@ -29,6 +30,7 @@ export default function App() {
       <main>
         <Hero />
         <AboutSection />
+        <CredentialsRail />
         <DubaiSection />
         <PictureSeriesSection />
         <ChangeSection />
@@ -81,6 +83,17 @@ export default function App() {
         </nav>
         <p className="mt-8 text-[color-mix(in_srgb,var(--ivory)_65%,transparent)]">
           © {new Date().getFullYear()} ECKOBIG TRINITY GLOBAL · Beautify Our World
+        </p>
+        <p className="mt-4 text-[0.7rem] tracking-[0.12em] text-[color-mix(in_srgb,var(--ivory)_38%,transparent)]">
+          Crafted by{" "}
+          <a
+            href="https://github.com/DennisOgi"
+            target="_blank"
+            rel="noreferrer"
+            className="text-[color-mix(in_srgb,var(--ivory)_52%,transparent)] transition-colors hover:text-[var(--gold-light)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--gold)]"
+          >
+            Dennis Ogi
+          </a>
         </p>
       </footer>
     </>
