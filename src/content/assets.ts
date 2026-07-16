@@ -10,6 +10,7 @@ export const media = {
   lifestyle: "/media/portrait-lifestyle.jpeg",
   dubaiStory: "/media/portrait-dubai-story.jpeg",
   burj: "/media/burj-atmosphere.jpeg",
+  /** Dubai chapter imagery lives under `/media/dubai` — see `content/dubai.ts` */
   brandLogo: "/media/eckobig-logo.jpeg",
   cefonLogo: "/media/cefon-logo.jpeg",
   changeThinking: "/media/change-thinking.jpeg",

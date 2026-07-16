@@ -10,8 +10,8 @@ export const about = {
   ],
   /** Skim-first lead — shown above the fold */
   lead: [
-    "ECKOBIG ANTHONY is a Nigerian entrepreneur, trade consultant, visionary leader, and founder of ECKOBIG TRINITY GLOBAL, a company registered with the Corporate Affairs Commission (CAC), Nigeria. Through his business and social initiatives, he is driven by a commitment to innovation, excellence, and creating lasting value.",
-    "Today, as Chief Executive Officer of ECKOBIG TRINITY GLOBAL, he leads a company specializing in the sales and marketing of premium luxury products and services, with expertise in agency representation, international sourcing, procurement, and logistics. His vision is to connect businesses, brands, and opportunities across borders while delivering quality, professionalism, and trusted partnerships.",
+    "CEO of ECKOBIG TRINITY GLOBAL (CAC-registered, Nigeria) — premium luxury sales and marketing, agency representation, international sourcing, procurement, and logistics. Connecting businesses and brands across borders with professionalism and trusted partnerships.",
+    "His Dubai chapter — Fleet Supervisor with Private Limousine LLC — delivered executive chauffeur service to iconic destinations including Burj Khalifa and leading luxury hotels across the emirate, grounding his leadership in world-class hospitality standards.",
   ],
   pullQuote:
     "a student in the University of Life, Department of Hard Knocks, Faculty for the Stars.",

@@ -1,6 +1,7 @@
 /**
  * Portraits gallery — originals in `/assets` named `picture 1.jpeg` … `picture 10.jpeg`
- * (picture 6 absent). Horizontal browse below; mobile hero may still rotate these frames.
+ * (picture 6 absent). Horizontal browse below; mobile hero rotates a curated subset
+ * (picture 3 is excluded from the hero slider).
  */
 
 export type SeriesFrame = {

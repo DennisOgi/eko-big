@@ -335,29 +335,38 @@ export function Hero() {
           </motion.h1>
 
           <motion.p
-            className="mt-5 max-w-sm text-lg font-light tracking-wide text-[color-mix(in_srgb,var(--ivory)_92%,var(--gold-light))] [text-shadow:0_1px_18px_color-mix(in_srgb,var(--green)_55%,transparent)] md:mt-6 md:text-xl"
+            className="mt-5 max-w-md text-lg font-light tracking-wide text-[color-mix(in_srgb,var(--ivory)_92%,var(--gold-light))] [text-shadow:0_1px_18px_color-mix(in_srgb,var(--green)_55%,transparent)] md:mt-6 md:text-xl"
             initial={reduce ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35 }}
           >
-            Building value across borders.
+            International trade · Luxury hospitality experience · Leadership
+          </motion.p>
+
+          <motion.p
+            className="mt-3 text-xs font-medium tracking-[0.28em] text-[color-mix(in_srgb,var(--gold-light)_85%,var(--ivory))] uppercase [text-shadow:0_1px_12px_color-mix(in_srgb,var(--green)_50%,transparent)]"
+            initial={reduce ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.48 }}
+          >
+            Dubai · UAE · Nigeria
           </motion.p>
 
           <motion.div
             className="mt-9 flex flex-wrap gap-4 md:mt-10"
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
+            transition={{ duration: 0.7, delay: 0.55 }}
           >
-            <MagneticAnchor href="#about" className="btn-primary btn-lux">
-              Explore the journey
+            <MagneticAnchor href="#dubai" className="btn-primary btn-lux">
+              Dubai chapter
             </MagneticAnchor>
             <MagneticAnchor
-              href="#cefon"
+              href="#about"
               className="btn-ghost btn-lux-ghost"
               strength={0.22}
             >
-              Discover CEFON
+              Meet the founder
             </MagneticAnchor>
           </motion.div>
         </div>

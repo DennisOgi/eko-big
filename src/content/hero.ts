@@ -37,16 +37,16 @@ export const heroDesktopSlide: HeroSlide = {
 /**
  * Curated cinematic sequence — every picture-series frame, plus all hero-series frames.
  *
- * Picture series mapping:
+ * Picture series mapping (hero rotation; picture 3 omitted from hero):
  * picture 1 → portrait-white-suit-2
  * picture 2 → portrait-white-suit-3
- * picture 3 → portrait-white-suit-5
  * picture 4 → portrait-white-suit
  * picture 5 → portrait-navy-2
  * picture 7 → portrait-navy-4
  * picture 8 → portrait-navy-5
  * picture 9 → portrait-navy
  * picture 10 → portrait-navy-full
+ * (picture 3 → portrait-white-suit-5 remains in Portraits gallery only)
  *
  * Hero series mapping:
  * hero 1 → portrait-navy-full-5
@@ -85,13 +85,6 @@ export const heroSlides: HeroSlide[] = [
     position: "center 14%",
     positionDesktop: "66% 22%",
     kenBurns: "drift-left",
-  },
-  {
-    src: "/media/portrait-white-suit-5.jpeg",
-    alt: "ECKOBIG ANTHONY three-quarter white suit portrait",
-    position: "center 16%",
-    positionDesktop: "70% 28%",
-    kenBurns: "in",
   },
   {
     src: "/media/portrait-navy-full-2.jpeg",

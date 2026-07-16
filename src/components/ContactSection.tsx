@@ -16,9 +16,10 @@ export function ContactSection() {
                 Contact
               </h2>
               <ScrollAccent />
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-[var(--ink)]/75">
-                For partnerships, speaking engagements, trade enquiries, or CEFON
-                collaboration — reach out directly. More channels can be added here later.
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-[var(--ink)]/80">
+                For executive introductions, trade partnerships, speaking
+                engagements, or CEFON collaboration — please reach out directly.
+                All enquiries are handled with discretion.
               </p>
 
               <dl className="mt-10 space-y-5">
@@ -78,7 +79,9 @@ export function ContactSection() {
               <img
                 src={media.brandLogo}
                 alt="ECKOBIG high-end luxury brand mark"
-                className="w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+                className="w-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </figure>
           </div>

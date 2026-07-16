@@ -17,19 +17,27 @@ export function AboutSection() {
           <ScrollAccent />
         </Reveal>
 
+        <Reveal delay={0.06}>
+          <p className="mt-6 max-w-3xl text-sm font-medium tracking-[0.14em] text-[var(--gold-deep)] uppercase md:text-[0.8rem]">
+            CEO · ECKOBIG TRINITY GLOBAL
+          </p>
+        </Reveal>
+
         <Reveal delay={0.08}>
-          <p className="mt-8 max-w-4xl text-base leading-relaxed text-[var(--green-mid)] md:text-lg">
+          <p className="mt-4 max-w-4xl text-base leading-relaxed text-[var(--green-mid)] md:text-lg">
             {about.roles.join("  ·  ")}
           </p>
         </Reveal>
 
-        <div className="mt-14 grid items-start gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16">
+        <div className="mt-12 grid items-start gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16">
           <Reveal className="relative">
             <figure className="media-lift group overflow-hidden">
               <img
                 src={media.aboutPortrait}
                 alt="ECKOBIG ANTHONY in a navy pinstripe suit"
                 className="w-full object-cover object-top transition duration-700 group-hover:scale-[1.03]"
+                loading="eager"
+                decoding="async"
               />
             </figure>
             <figure className="media-lift group mt-4 overflow-hidden md:mt-6">
@@ -37,6 +45,8 @@ export function AboutSection() {
                 src={media.lifestyle}
                 alt="ECKOBIG ANTHONY with a luxury vehicle"
                 className="aspect-[16/10] w-full object-cover object-top transition duration-700 group-hover:scale-[1.03]"
+                loading="lazy"
+                decoding="async"
               />
             </figure>
           </Reveal>
@@ -72,6 +82,8 @@ export function AboutSection() {
                   src={media.dubaiStory}
                   alt="ECKOBIG ANTHONY with Burj Khalifa — Dubai career chapter"
                   className="w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="prose-editorial">
@@ -111,6 +123,8 @@ export function AboutSection() {
                   src={media.credentials.cac}
                   alt="CAC Certificate of Registration — ECKOBIG TRINITY GLOBAL"
                   className="h-48 w-full object-cover object-top transition duration-500 group-hover:scale-[1.04] sm:h-56"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <p className="mt-2 text-sm text-[var(--green-mid)] transition-colors group-hover:text-[var(--gold-deep)]">
                   CAC Registration
@@ -126,6 +140,8 @@ export function AboutSection() {
                   src={media.credentials.employment}
                   alt="Employment certificate from Private Limousine LLC, Dubai"
                   className="h-48 w-full object-cover object-top transition duration-500 group-hover:scale-[1.04] sm:h-56"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <p className="mt-2 text-sm text-[var(--green-mid)] transition-colors group-hover:text-[var(--gold-deep)]">
                   Dubai Employment
@@ -141,6 +157,8 @@ export function AboutSection() {
                   src={media.credentials.sira}
                   alt="SIRA Security Guard Training Certificate, Dubai"
                   className="h-48 w-full object-cover object-top transition duration-500 group-hover:scale-[1.04] sm:h-56"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <p className="mt-2 text-sm text-[var(--green-mid)] transition-colors group-hover:text-[var(--gold-deep)]">
                   SIRA Training

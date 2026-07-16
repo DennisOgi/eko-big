@@ -3,9 +3,10 @@ import { useEffect, useState } from "react"
 
 const links = [
   { href: "#about", label: "About", id: "about" },
+  { href: "#dubai", label: "Dubai", id: "dubai" },
   { href: "#series", label: "Portraits", id: "series" },
   { href: "#change", label: "CHANGE", id: "change" },
-  { href: "#son", label: "SON Initiative", id: "son" },
+  { href: "#son", label: "SON", id: "son" },
   { href: "#cefon", label: "CEFON", id: "cefon" },
   { href: "#contact", label: "Contact", id: "contact" },
 ] as const
@@ -33,6 +34,8 @@ export function Nav({ activeId }: NavProps) {
     }
   }, [open])
 
+  const onHero = !scrolled
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
@@ -41,45 +44,78 @@ export function Nav({ activeId }: NavProps) {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 md:px-8">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-4 md:px-8">
         <motion.a
           href="#top"
-          className="font-[family-name:var(--font-display)] text-sm font-semibold tracking-[0.22em] text-[var(--green)] md:text-base"
+          className={`font-[family-name:var(--font-display)] text-sm font-semibold tracking-[0.22em] md:text-base ${
+            onHero ? "text-[var(--ivory)]" : "text-[var(--green)]"
+          }`}
           whileHover={reduce ? undefined : { letterSpacing: "0.28em" }}
           transition={{ duration: 0.35 }}
         >
           ECKOBIG
         </motion.a>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
-          {links.map((link) => (
-            <a
-              key={link.id}
-              href={link.href}
-              className="nav-link text-sm tracking-wide text-[var(--ink)]"
-              aria-current={activeId === link.id ? "true" : undefined}
-            >
-              {link.label}
-            </a>
-          ))}
+        <nav
+          className="hidden items-center gap-1 lg:flex lg:gap-0.5 xl:gap-1"
+          aria-label="Primary"
+        >
+          {links.map((link) => {
+            const isDubai = link.id === "dubai"
+            const active = activeId === link.id
+            return (
+              <a
+                key={link.id}
+                href={link.href}
+                className={`nav-link px-2.5 py-1 text-[0.8rem] tracking-[0.06em] xl:px-3 xl:text-sm ${
+                  onHero
+                    ? active || isDubai
+                      ? "text-[var(--gold-light)]"
+                      : "text-[color-mix(in_srgb,var(--ivory)_88%,transparent)] hover:text-[var(--gold-light)]"
+                    : active || isDubai
+                      ? "text-[var(--gold-deep)]"
+                      : "text-[var(--ink)] hover:text-[var(--gold-deep)]"
+                } ${isDubai ? "font-medium" : ""}`}
+                aria-current={active ? "true" : undefined}
+              >
+                {link.label}
+              </a>
+            )
+          })}
         </nav>
 
-        <button
-          type="button"
-          className="inline-flex items-center justify-center border border-[color-mix(in_srgb,var(--green)_25%,transparent)] px-3 py-2 text-sm text-[var(--green)] transition-colors duration-300 hover:border-[var(--gold)] hover:text-[var(--gold-deep)] focus-visible:ring-2 focus-visible:ring-[var(--gold)] focus-visible:ring-offset-2 md:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? "Close" : "Menu"}
-        </button>
+        <div className="flex items-center gap-3">
+          <a
+            href="#dubai"
+            className={`hidden text-xs font-medium tracking-[0.2em] uppercase transition-colors duration-300 md:inline-flex lg:hidden ${
+              onHero
+                ? "text-[var(--gold-light)] hover:text-[var(--ivory)]"
+                : "text-[var(--gold-deep)] hover:text-[var(--green)]"
+            }`}
+          >
+            Dubai
+          </a>
+          <button
+            type="button"
+            className={`inline-flex items-center justify-center border px-3 py-2 text-sm transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-[var(--gold)] focus-visible:ring-offset-2 lg:hidden ${
+              onHero
+                ? "border-[color-mix(in_srgb,var(--gold)_45%,transparent)] text-[var(--ivory)] hover:border-[var(--gold-light)] hover:text-[var(--gold-light)]"
+                : "border-[color-mix(in_srgb,var(--green)_25%,transparent)] text-[var(--green)] hover:border-[var(--gold)] hover:text-[var(--gold-deep)]"
+            }`}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? "Close" : "Menu"}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
         {open && (
           <motion.div
             id="mobile-nav"
-            className="border-t border-[color-mix(in_srgb,var(--gold)_25%,transparent)] bg-[var(--ivory)] px-5 py-6 md:hidden"
+            className="border-t border-[color-mix(in_srgb,var(--gold)_25%,transparent)] bg-[var(--ivory)] px-5 py-6 lg:hidden"
             initial={reduce ? false : { opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={reduce ? undefined : { opacity: 0, height: 0 }}
@@ -90,7 +126,11 @@ export function Nav({ activeId }: NavProps) {
                 <motion.a
                   key={link.id}
                   href={link.href}
-                  className="text-lg text-[var(--green)] transition-colors hover:text-[var(--gold-deep)]"
+                  className={`text-lg transition-colors hover:text-[var(--gold-deep)] ${
+                    link.id === "dubai"
+                      ? "font-medium text-[var(--gold-deep)]"
+                      : "text-[var(--green)]"
+                  }`}
                   onClick={() => setOpen(false)}
                   initial={reduce ? false : { opacity: 0, x: -12 }}
                   animate={{ opacity: 1, x: 0 }}
