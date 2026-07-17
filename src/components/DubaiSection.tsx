@@ -127,10 +127,6 @@ export function DubaiSection() {
         className="pointer-events-none absolute -right-24 top-10 h-72 w-72 rounded-full bg-[color-mix(in_srgb,var(--gold)_14%,transparent)] blur-3xl"
         aria-hidden
       />
-      <div
-        className="pointer-events-none absolute -left-16 bottom-20 h-64 w-64 rounded-full bg-[color-mix(in_srgb,var(--green)_10%,transparent)] blur-3xl"
-        aria-hidden
-      />
 
       <div className="relative z-10 mx-auto max-w-6xl px-5 md:px-8">
         <Reveal>

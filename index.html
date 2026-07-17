@@ -21,7 +21,9 @@
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="preload" as="image" href="/media/eko-big-desktop.png" fetchpriority="high" />
+    <!-- Preload only the hero plate the current breakpoint actually renders -->
+    <link rel="preload" as="image" href="/media/eko-big-desktop.png" fetchpriority="high" media="(min-width: 1024px)" />
+    <link rel="preload" as="image" href="/media/portrait-navy-full-5.jpeg" fetchpriority="high" media="(max-width: 1023.98px)" />
     <title>ECKOBIG ANTHONY · International Trade &amp; Leadership</title>
   </head>
   <body>

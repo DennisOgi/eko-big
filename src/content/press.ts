@@ -13,6 +13,8 @@ export const pressIntro = {
 export type PressSpread = {
   id: string
   image: string
+  /** Small variant for the thumbnail strip (see scripts/optimize-press-images.mjs) */
+  thumb: string
   publication: string
   headline: string
   date: string
@@ -23,6 +25,7 @@ export const pressSpreads: PressSpread[] = [
   {
     id: "vanguard-2023",
     image: "/media/press/pages/page-01.jpg",
+    thumb: "/media/press/pages/page-01-thumb.jpg",
     publication: "Vanguard",
     headline:
       "How I escaped from police SARS squad through divine intervention",
@@ -32,6 +35,7 @@ export const pressSpreads: PressSpread[] = [
   {
     id: "independent-observer-2019",
     image: "/media/press/pages/page-02.jpg",
+    thumb: "/media/press/pages/page-02-thumb.jpg",
     publication: "Independent Observer",
     headline: "Why it has to be Atiku",
     date: "September 2019",
@@ -40,6 +44,7 @@ export const pressSpreads: PressSpread[] = [
   {
     id: "sunday-independent-2019",
     image: "/media/press/pages/page-03.jpg",
+    thumb: "/media/press/pages/page-03-thumb.jpg",
     publication: "Sunday Independent",
     headline: "ECKOBIG TRINITY GLOBAL celebrates 8th anniversary in style",
     date: "April 2019",

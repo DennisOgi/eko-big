@@ -236,7 +236,7 @@ export function PressSection() {
                         onDoubleClick={() => openLightbox(i)}
                       >
                         <img
-                          src={item.image}
+                          src={item.thumb}
                           alt=""
                           className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-105"
                           loading="lazy"

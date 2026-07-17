@@ -10,20 +10,18 @@ type RevealProps = {
 
 export function Reveal({ children, className, delay = 0 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, amount: 0.18 })
+  const inView = useInView(ref, { once: true, amount: 0.12 })
   const reduce = useReducedMotion()
 
+  // Opacity + translate only: blur() filters here caused a visible white
+  // smear while sections faded in, and forced expensive repaints on scroll.
   return (
     <motion.div
       ref={ref}
       className={className}
-      initial={reduce ? false : { opacity: 0, y: 32, filter: "blur(4px)" }}
-      animate={
-        inView
-          ? { opacity: 1, y: 0, filter: "blur(0px)" }
-          : undefined
-      }
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay }}
+      initial={reduce ? false : { opacity: 0, y: 20 }}
+      animate={inView ? { opacity: 1, y: 0 } : undefined}
+      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay }}
     >
       {children}
     </motion.div>

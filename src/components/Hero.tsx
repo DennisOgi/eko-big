@@ -104,6 +104,7 @@ export function Hero() {
   const [slide, setSlide] = useState(0)
   const [ambient, setAmbient] = useState(0)
   const [ready, setReady] = useState(false)
+  const [inView, setInView] = useState(true)
 
   const mx = useMotionValue(0)
   const my = useMotionValue(0)
@@ -143,22 +144,35 @@ export function Hero() {
     img.onerror = () => setReady(true)
   }, [isLg])
 
+  /** Pause the rotating layers once the hero is scrolled away — the
+   * full-viewport crossfades otherwise keep compositing during reading. */
+  useEffect(() => {
+    const el = sectionRef.current
+    if (!el) return
+    const io = new IntersectionObserver(
+      ([entry]) => setInView(Boolean(entry?.isIntersecting)),
+      { threshold: 0.05 },
+    )
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
+
   /** Mobile only — desktop locks to a single plate */
   useEffect(() => {
-    if (reduce || isLg) return
+    if (reduce || isLg || !inView) return
     const id = window.setInterval(() => {
       setSlide((s) => (s + 1) % heroSlides.length)
     }, HERO_SLIDE_MS)
     return () => window.clearInterval(id)
-  }, [reduce, isLg])
+  }, [reduce, isLg, inView])
 
   useEffect(() => {
-    if (reduce || isLg) return
+    if (reduce || isLg || !inView) return
     const id = window.setInterval(() => {
       setAmbient((a) => (a + 1) % heroAmbient.length)
     }, HERO_AMBIENT_MS)
     return () => window.clearInterval(id)
-  }, [reduce, isLg])
+  }, [reduce, isLg, inView])
 
   useEffect(() => {
     const idle = window.setTimeout(() => {
