@@ -6,6 +6,7 @@ const links = [
   { href: "#credentials", label: "Credentials", id: "credentials" },
   { href: "#press", label: "Press", id: "press" },
   { href: "#dubai", label: "Dubai", id: "dubai" },
+  { href: "#china", label: "China", id: "china" },
   { href: "#series", label: "Portraits", id: "series" },
   { href: "#change", label: "CHANGE", id: "change" },
   { href: "#son", label: "SON", id: "son" },

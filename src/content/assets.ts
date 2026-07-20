@@ -11,6 +11,7 @@ export const media = {
   dubaiStory: "/media/portrait-dubai-story.jpeg",
   burj: "/media/burj-atmosphere.jpeg",
   /** Dubai chapter imagery lives under `/media/dubai` — see `content/dubai.ts` */
+  /** China chapter imagery lives under `/media/china` — see `content/china.ts` */
   brandLogo: "/media/eckobig-logo.jpeg",
   cefonLogo: "/media/cefon-logo.jpeg",
   changeThinking: "/media/change-thinking.jpeg",

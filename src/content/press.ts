@@ -7,7 +7,7 @@ export const pressIntro = {
   title: "Press Coverage",
   lead: "National newspaper features documenting leadership, advocacy, and enterprise — from political commentary to corporate milestones and personal testimony.",
   readMore:
-    "These archived spreads reflect sustained visibility across Nigeria's press landscape: Vanguard, Independent Observer, and Sunday Independent. Each feature captures a distinct chapter — faith under pressure, electoral advocacy, and the eighth anniversary of ECKOBIG TRINITY GLOBAL.",
+    "These archived spreads reflect sustained visibility across Nigeria's press landscape: The Union, Sunday Sun, and Sunday Mirror. Each feature captures a distinct chapter — preaching change through music, divine inspiration in artistry, and a philosophy of corporate, smart personal style.",
 } as const
 
 export type PressSpread = {
@@ -23,32 +23,31 @@ export type PressSpread = {
 
 export const pressSpreads: PressSpread[] = [
   {
-    id: "vanguard-2023",
+    id: "the-union-2014",
     image: "/media/press/pages/page-01.jpg",
     thumb: "/media/press/pages/page-01-thumb.jpg",
-    publication: "Vanguard",
-    headline:
-      "How I escaped from police SARS squad through divine intervention",
-    date: "November 2023",
-    alt: "Vanguard newspaper spread featuring Prince ECKOBIG Anthony — headline on escaping police SARS through divine intervention",
+    publication: "The Union",
+    headline: "I Preach For Change Through My Music",
+    date: "December 2014",
+    alt: "The Union weekend special interview with Eckobig Chidiebere Anthony — I Preach For Change Through My Music",
   },
   {
-    id: "independent-observer-2019",
+    id: "sunday-sun-2015",
     image: "/media/press/pages/page-02.jpg",
     thumb: "/media/press/pages/page-02-thumb.jpg",
-    publication: "Independent Observer",
-    headline: "Why it has to be Atiku",
-    date: "September 2019",
-    alt: "Independent Observer newspaper page with ECKOBIG commentary on Atiku Abubakar and the 2019 presidential election",
+    publication: "Sunday Sun",
+    headline: "God is my inspiration -Eckobig",
+    date: "July 2015",
+    alt: "Sunday Sun Entertainer feature — God is my inspiration -Eckobig",
   },
   {
-    id: "sunday-independent-2019",
+    id: "sunday-mirror-2015",
     image: "/media/press/pages/page-03.jpg",
     thumb: "/media/press/pages/page-03-thumb.jpg",
-    publication: "Sunday Independent",
-    headline: "ECKOBIG TRINITY GLOBAL celebrates 8th anniversary in style",
-    date: "April 2019",
-    alt: "Sunday Independent feature on ECKOBIG TRINITY GLOBAL eighth anniversary celebration in Lagos",
+    publication: "Sunday Mirror",
+    headline: "'I like to look corporate and smart'",
+    date: "August 2015",
+    alt: "Sunday Mirror Dude Style feature with Eckobig Chidiebere — I like to look corporate and smart",
   },
 ] as const
 

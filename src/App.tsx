@@ -4,6 +4,7 @@ import { CefonSection } from "./components/CefonSection"
 import { ChangeSection } from "./components/ChangeSection"
 import { ContactSection } from "./components/ContactSection"
 import { CredentialsRail } from "./components/CredentialsRail"
+import { ChinaSection } from "./components/ChinaSection"
 import { DubaiSection } from "./components/DubaiSection"
 import { Hero } from "./components/Hero"
 import { Nav } from "./components/Nav"
@@ -34,6 +35,7 @@ export default function App() {
         <CredentialsRail />
         <PressSection />
         <DubaiSection />
+        <ChinaSection />
         <PictureSeriesSection />
         <ChangeSection />
         <SonSection />

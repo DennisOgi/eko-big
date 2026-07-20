@@ -7,6 +7,7 @@ export const sections = [
   { id: "credentials", label: "Credentials", component: "CredentialsRail" },
   { id: "press", label: "Press", component: "PressSection" },
   { id: "dubai", label: "Dubai", component: "DubaiSection" },
+  { id: "china", label: "China", component: "ChinaSection" },
   { id: "series", label: "Portraits", component: "PictureSeriesSection" },
   { id: "change", label: "CHANGE", component: "ChangeSection" },
   { id: "son", label: "SON Initiative", component: "SonSection" },
