@@ -28,7 +28,7 @@ export const dubaiIntro = {
     "Executive chauffeur operations across Dubai’s defining luxury hospitality destinations — Burj Khalifa and Downtown, Marina, Jumeirah, DIFC, and the Palm — delivering the standard expected by international guests and institutional clients.",
   credibility:
     "A working map of world-class service: precision timing, discreet presence, and operational excellence forged in one of the world’s most demanding luxury markets.",
-  note: "Twenty-one hotels and premium venues — the chapter that still informs leadership at ECKOBIG TRINITY GLOBAL.",
+  note: "Twenty hotels and premium venues — the chapter that still informs leadership at ECKOBIG TRINITY GLOBAL.",
   closing:
     "This chapter shaped a lasting standard of operational excellence and hospitality — the same discipline that now informs leadership at ECKOBIG TRINITY GLOBAL.",
 } as const
@@ -120,7 +120,7 @@ export const dubaiVenues: DubaiVenue[] = [
   },
   {
     id: "mandarin-oriental",
-    name: "Mandarin Oriental Jumeira, Dubai",
+    name: "Mandarin Oriental Jumeira 1, Dubai",
     district: "Jumeirah",
     image: "/media/dubai/mandarin-oriental-jumeira.jpg",
     position: "center 40%",
@@ -143,7 +143,7 @@ export const dubaiVenues: DubaiVenue[] = [
     id: "al-khasa",
     name: "Al Khasa Hotel, Jumeirah, Dubai",
     district: "Jumeirah",
-    image: "/media/dubai/al-khasa-jumeirah.jpg",
+    image: "/media/dubai/al-khasa-jumeirah.webp",
     position: "center 50%",
   },
   {
@@ -159,13 +159,6 @@ export const dubaiVenues: DubaiVenue[] = [
     district: "Madinat Jumeirah",
     image: "/media/dubai/jumeirah-mina-asalam.jpg",
     position: "center 45%",
-  },
-  {
-    id: "jumeirah-beach-hotel",
-    name: "Jumeirah Beach Hotel, Dubai",
-    district: "Jumeirah Beach",
-    image: "/media/dubai/jumeirah-beach-hotel.jpg",
-    position: "center 35%",
   },
   {
     id: "wyndham-marina",
