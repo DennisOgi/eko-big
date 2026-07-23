@@ -134,76 +134,81 @@ export function DubaiSection() {
       />
 
       <div className="relative z-10 mx-auto max-w-6xl px-5 md:px-8">
-        <Reveal>
-          <p className="text-xs font-medium tracking-[0.3em] text-[var(--gold-deep)] uppercase">
-            {dubaiIntro.eyebrow}
-          </p>
-          <h2
-            id={labelId}
-            className="heading-shimmer mt-3 font-[family-name:var(--font-display)] text-3xl tracking-[0.04em] text-[var(--green)] md:text-5xl"
-          >
-            {dubaiIntro.title}
-          </h2>
-          <ScrollAccent />
-          <p className="mt-5 text-sm font-medium tracking-[0.16em] text-[var(--green)] md:text-base">
-            {dubaiIntro.role}
-          </p>
-          <p className="mt-5 max-w-3xl text-base leading-relaxed text-[var(--green-mid)] md:text-lg">
-            {dubaiIntro.lead}
-          </p>
-          <ul
-            className="mt-5 flex flex-wrap gap-x-4 gap-y-2"
-            aria-label="Primary Dubai corridors"
-          >
-            {dubaiDistricts.map((district) => (
-              <li
-                key={district}
-                className="text-[0.7rem] tracking-[0.22em] text-[color-mix(in_srgb,var(--ink)_48%,transparent)] uppercase"
-              >
-                <span
-                  className="mr-2 inline-block h-px w-3 align-middle bg-[var(--gold)]"
-                  aria-hidden
-                />
-                {district}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-[color-mix(in_srgb,var(--ink)_62%,transparent)] md:text-[0.95rem]">
-            {dubaiIntro.credibility}
-          </p>
-          <p className="mt-3 text-sm tracking-wide text-[color-mix(in_srgb,var(--ink)_55%,transparent)]">
-            {dubaiIntro.note}
-          </p>
-        </Reveal>
+        {/*
+          Split intro: write-up + magazine portrait sit in one viewport when
+          visitors click Dubai — image is sighted immediately, not buried below.
+        */}
+        <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] lg:gap-12 xl:gap-14">
+          <Reveal className="order-2 lg:order-1 lg:pt-1">
+            <p className="text-xs font-medium tracking-[0.3em] text-[var(--gold-deep)] uppercase">
+              {dubaiIntro.eyebrow}
+            </p>
+            <h2
+              id={labelId}
+              className="heading-shimmer mt-3 font-[family-name:var(--font-display)] text-[1.75rem] tracking-[0.04em] text-[var(--green)] sm:text-3xl md:text-4xl xl:text-5xl"
+            >
+              {dubaiIntro.title}
+            </h2>
+            <ScrollAccent />
+            <p className="mt-5 text-sm font-medium tracking-[0.16em] text-[var(--green)] md:text-base">
+              {dubaiIntro.role}
+            </p>
+            <p className="mt-5 text-base leading-relaxed text-[var(--green-mid)] md:text-lg">
+              {dubaiIntro.lead}
+            </p>
+            <ul
+              className="mt-5 flex flex-wrap gap-x-4 gap-y-2"
+              aria-label="Primary Dubai corridors"
+            >
+              {dubaiDistricts.map((district) => (
+                <li
+                  key={district}
+                  className="text-[0.7rem] tracking-[0.22em] text-[color-mix(in_srgb,var(--ink)_48%,transparent)] uppercase"
+                >
+                  <span
+                    className="mr-2 inline-block h-px w-3 align-middle bg-[var(--gold)]"
+                    aria-hidden
+                  />
+                  {district}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-5 text-sm leading-relaxed text-[color-mix(in_srgb,var(--ink)_62%,transparent)] md:text-[0.95rem]">
+              {dubaiIntro.credibility}
+            </p>
+            <p className="mt-3 text-sm tracking-wide text-[color-mix(in_srgb,var(--ink)_55%,transparent)]">
+              {dubaiIntro.note}
+            </p>
+          </Reveal>
 
-        {/* Featured magazine portrait — first visual when opening Dubai */}
-        <Reveal delay={0.06} className="mt-10 md:mt-12">
-          <figure className="media-lift group relative overflow-hidden border border-[color-mix(in_srgb,var(--gold)_35%,transparent)] shadow-[0_24px_60px_color-mix(in_srgb,var(--green)_14%,transparent)]">
-            <img
-              src={dubaiFeatured.src}
-              alt={dubaiFeatured.alt}
-              className="aspect-[4/5] w-full object-cover sm:aspect-[16/11] md:aspect-[21/10] lg:max-h-[min(72vh,40rem)]"
-              style={{ objectPosition: dubaiFeatured.position }}
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-            />
-            <div
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[color-mix(in_srgb,var(--green)_70%,transparent)] via-[color-mix(in_srgb,var(--green)_28%,transparent)] to-transparent"
-              aria-hidden
-            />
-            <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 px-4 py-4 sm:px-6 sm:py-5">
-              <span className="text-[0.65rem] tracking-[0.28em] text-[var(--gold-light)] uppercase sm:text-xs">
-                {dubaiFeatured.caption}
-              </span>
-              <span className="hidden text-[0.65rem] tracking-[0.18em] text-[color-mix(in_srgb,var(--ivory)_75%,transparent)] uppercase sm:inline">
-                ECKOBIG ANTHONY
-              </span>
-            </figcaption>
-          </figure>
-        </Reveal>
+          <Reveal delay={0.06} className="order-1 lg:order-2 lg:sticky lg:top-28">
+            <figure className="media-lift relative overflow-hidden border border-[color-mix(in_srgb,var(--gold)_38%,transparent)] shadow-[0_24px_60px_color-mix(in_srgb,var(--green)_14%,transparent)]">
+              <img
+                src={dubaiFeatured.src}
+                alt={dubaiFeatured.alt}
+                className="aspect-[4/5] w-full object-cover sm:aspect-[5/6] lg:aspect-[4/5] lg:max-h-[min(78vh,36rem)]"
+                style={{ objectPosition: dubaiFeatured.position }}
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+              />
+              <div
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[color-mix(in_srgb,var(--green)_72%,transparent)] via-[color-mix(in_srgb,var(--green)_28%,transparent)] to-transparent"
+                aria-hidden
+              />
+              <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 px-4 py-4 sm:px-5 sm:py-5">
+                <span className="text-[0.65rem] tracking-[0.28em] text-[var(--gold-light)] uppercase sm:text-xs">
+                  {dubaiFeatured.caption}
+                </span>
+                <span className="text-[0.6rem] tracking-[0.16em] text-[color-mix(in_srgb,var(--ivory)_78%,transparent)] uppercase sm:text-[0.65rem]">
+                  ECKOBIG ANTHONY
+                </span>
+              </figcaption>
+            </figure>
+          </Reveal>
+        </div>
 
-        <Reveal delay={0.1} className="mt-12 md:mt-14">
+        <Reveal delay={0.1} className="mt-12 md:mt-16">
           <div
             className="relative outline-none"
             role="region"
