@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react"
 import { AboutSection } from "./components/AboutSection"
+import { BooksSection } from "./components/BooksSection"
 import { CefonSection } from "./components/CefonSection"
 import { ChangeSection } from "./components/ChangeSection"
 import { ContactSection } from "./components/ContactSection"
@@ -18,7 +19,7 @@ import { sections } from "./content/sections"
 const sectionIds = sections.map((s) => s.id)
 
 export default function App() {
-  const [activeId, setActiveId] = useState("about")
+  const [activeId, setActiveId] = useState("")
   const onActive = useCallback((id: string) => setActiveId(id), [])
   useSectionObserver(sectionIds, onActive)
 
@@ -28,7 +29,7 @@ export default function App() {
       <a href="#about" className="skip-link">
         Skip to content
       </a>
-      <Nav activeId={activeId} />
+      <Nav activeId={activeId} onNavigate={onActive} />
       <main>
         <Hero />
         <AboutSection />
@@ -36,6 +37,7 @@ export default function App() {
         <PressSection />
         <DubaiSection />
         <ChinaSection />
+        <BooksSection />
         <PictureSeriesSection />
         <ChangeSection />
         <SonSection />

@@ -48,28 +48,59 @@ export function ScrollAccent({ className }: { className?: string }) {
   )
 }
 
+const NAV_OFFSET = 88
+const HERO_CLEAR_MARGIN = 40
+const SECTION_PROBE = 16
+
+/** Scroll-position spy — uses viewport geometry (not offsetTop) for accurate section detection. */
 export function useSectionObserver(
   ids: string[],
   onActive: (id: string) => void,
 ) {
   useEffect(() => {
-    const elements = ids
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => Boolean(el))
+    const hero = document.getElementById("top")
 
-    if (!elements.length) return
+    const update = () => {
+      if (hero) {
+        const heroBottom = hero.getBoundingClientRect().bottom
+        // Hero still visible below the nav band — no section link should be active.
+        if (heroBottom > NAV_OFFSET + HERO_CLEAR_MARGIN) {
+          onActive("")
+          return
+        }
+      }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
-        if (visible[0]?.target.id) onActive(visible[0].target.id)
-      },
-      { rootMargin: "-35% 0px -45% 0px", threshold: [0.1, 0.25, 0.5] },
-    )
+      const probe = NAV_OFFSET + SECTION_PROBE
+      let current = ""
 
-    elements.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
+      for (const id of ids) {
+        const el = document.getElementById(id)
+        if (!el) continue
+        if (el.getBoundingClientRect().top <= probe) current = id
+      }
+
+      onActive(current)
+    }
+
+    update()
+    const raf = requestAnimationFrame(update)
+    window.addEventListener("scroll", update, { passive: true })
+    window.addEventListener("resize", update, { passive: true })
+    window.addEventListener("load", update)
+    return () => {
+      cancelAnimationFrame(raf)
+      window.removeEventListener("scroll", update)
+      window.removeEventListener("resize", update)
+      window.removeEventListener("load", update)
+    }
   }, [ids, onActive])
+}
+
+export function scrollToSection(id: string, smooth = true) {
+  const el = document.getElementById(id)
+  if (!el) return
+
+  const top = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET
+  window.scrollTo({ top: Math.max(0, top), behavior: smooth ? "smooth" : "auto" })
+  history.replaceState(null, "", `#${id}`)
 }

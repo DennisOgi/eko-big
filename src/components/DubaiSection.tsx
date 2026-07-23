@@ -11,7 +11,12 @@ import {
   useState,
   type KeyboardEvent,
 } from "react"
-import { dubaiDistricts, dubaiIntro, dubaiVenues } from "../content/dubai"
+import {
+  dubaiDistricts,
+  dubaiFeatured,
+  dubaiIntro,
+  dubaiVenues,
+} from "../content/dubai"
 import { Reveal, ScrollAccent } from "./Reveal"
 
 const AUTOPLAY_MS = 5600
@@ -171,7 +176,34 @@ export function DubaiSection() {
           </p>
         </Reveal>
 
-        <Reveal delay={0.08} className="mt-12 md:mt-14">
+        {/* Featured magazine portrait — first visual when opening Dubai */}
+        <Reveal delay={0.06} className="mt-10 md:mt-12">
+          <figure className="media-lift group relative overflow-hidden border border-[color-mix(in_srgb,var(--gold)_35%,transparent)] shadow-[0_24px_60px_color-mix(in_srgb,var(--green)_14%,transparent)]">
+            <img
+              src={dubaiFeatured.src}
+              alt={dubaiFeatured.alt}
+              className="aspect-[4/5] w-full object-cover sm:aspect-[16/11] md:aspect-[21/10] lg:max-h-[min(72vh,40rem)]"
+              style={{ objectPosition: dubaiFeatured.position }}
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
+            <div
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[color-mix(in_srgb,var(--green)_70%,transparent)] via-[color-mix(in_srgb,var(--green)_28%,transparent)] to-transparent"
+              aria-hidden
+            />
+            <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 px-4 py-4 sm:px-6 sm:py-5">
+              <span className="text-[0.65rem] tracking-[0.28em] text-[var(--gold-light)] uppercase sm:text-xs">
+                {dubaiFeatured.caption}
+              </span>
+              <span className="hidden text-[0.65rem] tracking-[0.18em] text-[color-mix(in_srgb,var(--ivory)_75%,transparent)] uppercase sm:inline">
+                ECKOBIG ANTHONY
+              </span>
+            </figcaption>
+          </figure>
+        </Reveal>
+
+        <Reveal delay={0.1} className="mt-12 md:mt-14">
           <div
             className="relative outline-none"
             role="region"

@@ -25,7 +25,7 @@ export const dubaiIntro = {
   title: "Luxury Hospitality Destinations",
   role: "Fleet Supervisor · Private Limousine LLC",
   lead:
-    "Executive chauffeur operations across Dubai’s defining luxury hospitality destinations — Burj Khalifa and Downtown, Marina, Jumeirah, DIFC, and the Palm — delivering the standard expected by international guests and institutional clients.",
+    "Executive chauffeur operations across Dubai’s defining luxury hospitality destinations — Burj Khalifa (Armani Hotel & Residence), Leading Luxury Hotel and VIP Destination Across Downtown, Marina, Jumeirah and DIFC Dubai UAE — delivering the standard expected by international guests and institutional clients.",
   credibility:
     "A working map of world-class service: precision timing, discreet presence, and operational excellence forged in one of the world’s most demanding luxury markets.",
   note: "Twenty hotels and premium venues — the chapter that still informs leadership at ECKOBIG TRINITY GLOBAL.",
@@ -33,10 +33,18 @@ export const dubaiIntro = {
     "This chapter shaped a lasting standard of operational excellence and hospitality — the same discipline that now informs leadership at ECKOBIG TRINITY GLOBAL.",
 } as const
 
+/** Featured portrait shown when visitors open the Dubai chapter */
+export const dubaiFeatured = {
+  src: "/media/dubai/dubai-hotel-magazine.jpg",
+  alt: "ECKOBIG ANTHONY standing in front of a Dubai luxury hotel — magazine feature",
+  caption: "On location · Dubai",
+  position: "center 28%",
+} as const
+
 export const dubaiVenues: DubaiVenue[] = [
   {
     id: "armani-burj",
-    name: "Armani Hotel Dubai, Burj Khalifa",
+    name: "Burj Khalifa Emaar Armani Hotel Dubai",
     district: "Downtown Dubai",
     image: "/media/dubai/armani-burj-khalifa.jpg",
     position: "center 30%",

@@ -1,5 +1,6 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState, type MouseEvent } from "react"
+import { scrollToSection } from "./Reveal"
 
 const links = [
   { href: "#about", label: "About", id: "about" },
@@ -7,6 +8,7 @@ const links = [
   { href: "#press", label: "Press", id: "press" },
   { href: "#dubai", label: "Dubai", id: "dubai" },
   { href: "#china", label: "China", id: "china" },
+  { href: "#books", label: "Books", id: "books" },
   { href: "#series", label: "Portraits", id: "series" },
   { href: "#change", label: "CHANGE", id: "change" },
   { href: "#son", label: "SON", id: "son" },
@@ -16,9 +18,10 @@ const links = [
 
 type NavProps = {
   activeId: string
+  onNavigate?: (id: string) => void
 }
 
-export function Nav({ activeId }: NavProps) {
+export function Nav({ activeId, onNavigate }: NavProps) {
   const reduce = useReducedMotion()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
@@ -48,6 +51,24 @@ export function Nav({ activeId }: NavProps) {
 
   const onHero = !scrolled
 
+  const navigateTo = useCallback(
+    (e: MouseEvent<HTMLAnchorElement>, id: string, closeMenu = false) => {
+      e.preventDefault()
+      onNavigate?.(id)
+
+      const scroll = () => scrollToSection(id, !reduce)
+
+      if (closeMenu) {
+        setOpen(false)
+        // Wait for the mobile drawer to close and body scroll to unlock.
+        window.setTimeout(scroll, reduce ? 0 : 420)
+      } else {
+        scroll()
+      }
+    },
+    [onNavigate, reduce],
+  )
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)] transition-all duration-500 ${
@@ -64,6 +85,13 @@ export function Nav({ activeId }: NavProps) {
           }`}
           whileHover={reduce ? undefined : { letterSpacing: "0.28em" }}
           transition={{ duration: 0.35 }}
+          onClick={(e) => {
+            e.preventDefault()
+            setOpen(false)
+            onNavigate?.("")
+            window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" })
+            history.replaceState(null, "", "#top")
+          }}
         >
           ECKOBIG
         </motion.a>
@@ -81,14 +109,19 @@ export function Nav({ activeId }: NavProps) {
                 href={link.href}
                 className={`nav-link px-2 py-1 text-[0.75rem] tracking-[0.05em] xl:px-2.5 xl:text-[0.8rem] ${
                   onHero
-                    ? active || isDubai
+                    ? active
                       ? "text-[var(--gold-light)]"
-                      : "text-[color-mix(in_srgb,var(--ivory)_88%,transparent)] hover:text-[var(--gold-light)]"
-                    : active || isDubai
+                      : isDubai
+                        ? "text-[color-mix(in_srgb,var(--gold-light)_85%,var(--ivory))] hover:text-[var(--gold-light)]"
+                        : "text-[color-mix(in_srgb,var(--ivory)_88%,transparent)] hover:text-[var(--gold-light)]"
+                    : active
                       ? "text-[var(--gold-deep)]"
-                      : "text-[var(--ink)] hover:text-[var(--gold-deep)]"
-                } ${isDubai ? "font-medium" : ""}`}
+                      : isDubai
+                        ? "font-medium text-[var(--green)] hover:text-[var(--gold-deep)]"
+                        : "text-[var(--ink)] hover:text-[var(--gold-deep)]"
+                } ${isDubai && !active ? "font-medium" : ""}`}
                 aria-current={active ? "true" : undefined}
+                onClick={(e) => navigateTo(e, link.id)}
               >
                 {link.label}
               </a>
@@ -104,6 +137,7 @@ export function Nav({ activeId }: NavProps) {
                 ? "text-[var(--gold-light)] hover:text-[var(--ivory)]"
                 : "text-[var(--gold-deep)] hover:text-[var(--green)]"
             }`}
+            onClick={(e) => navigateTo(e, "dubai")}
           >
             Dubai
           </a>
@@ -127,6 +161,9 @@ export function Nav({ activeId }: NavProps) {
         {open && (
           <motion.div
             id="mobile-nav"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Site menu"
             className="max-h-[min(78dvh,34rem)] overflow-y-auto overscroll-contain border-t border-[color-mix(in_srgb,var(--gold)_25%,transparent)] bg-[var(--ivory)] px-5 py-5 pb-[max(1.5rem,env(safe-area-inset-bottom))] lg:hidden"
             initial={reduce ? false : { opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
@@ -139,13 +176,13 @@ export function Nav({ activeId }: NavProps) {
                   key={link.id}
                   href={link.href}
                   className={`flex min-h-12 items-center border-b border-[color-mix(in_srgb,var(--gold)_18%,transparent)] text-base tracking-[0.04em] transition-colors last:border-b-0 hover:text-[var(--gold-deep)] ${
-                    link.id === "dubai"
+                    activeId === link.id
                       ? "font-medium text-[var(--gold-deep)]"
-                      : activeId === link.id
-                        ? "text-[var(--gold-deep)]"
+                      : link.id === "dubai"
+                        ? "font-medium text-[var(--green)]"
                         : "text-[var(--green)]"
                   }`}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => navigateTo(e, link.id, true)}
                   initial={reduce ? false : { opacity: 0, x: -12 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.03 * i, duration: 0.3 }}

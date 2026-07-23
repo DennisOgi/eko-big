@@ -2,6 +2,8 @@
 
 Venue images are the project’s own hotel/destination photos from `assets/hotels/`, copied into this folder with clean filenames for the web app. Each of the 20 venues maps 1:1 to its named source file.
 
+Featured chapter portrait: `dubai-hotel-magazine.jpg` ← `assets/dubai hotel magazine image.jpg`
+
 | Public file | Source (`assets/hotels/`) |
 |-------------|---------------------------|
 | `armani-burj-khalifa.jpg` | `Armani Hotel Dubai, Burj Khalifa.jpg` |
