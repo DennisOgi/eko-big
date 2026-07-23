@@ -93,7 +93,7 @@ export default function App() {
         <p className="mt-4 text-[0.7rem] tracking-[0.12em] text-[color-mix(in_srgb,var(--ivory)_38%,transparent)]">
           Crafted by{" "}
           <a
-            href="https://github.com/DennisOgi"
+            href="https://dennisogi.vercel.app/"
             target="_blank"
             rel="noreferrer"
             className="text-[color-mix(in_srgb,var(--ivory)_52%,transparent)] transition-colors hover:text-[var(--gold-light)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--gold)]"
