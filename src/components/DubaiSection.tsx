@@ -186,7 +186,7 @@ export function DubaiSection() {
               <img
                 src={dubaiFeatured.src}
                 alt={dubaiFeatured.alt}
-                className="aspect-[4/5] w-full object-cover sm:aspect-[5/6] lg:aspect-[4/5] lg:max-h-[min(78vh,36rem)]"
+                className="aspect-[3/4] w-full object-cover object-top sm:aspect-[4/5] lg:aspect-auto lg:min-h-[min(88vh,46rem)] lg:max-h-[min(92vh,50rem)]"
                 style={{ objectPosition: dubaiFeatured.position }}
                 loading="eager"
                 decoding="async"

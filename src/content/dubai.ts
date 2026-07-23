@@ -38,7 +38,7 @@ export const dubaiFeatured = {
   src: "/media/dubai/dubai-hotel-magazine.jpg",
   alt: "ECKOBIG ANTHONY standing in front of a Dubai luxury hotel — magazine feature",
   caption: "On location · Dubai",
-  position: "center 28%",
+  position: "center top",
 } as const
 
 export const dubaiVenues: DubaiVenue[] = [
