@@ -44,28 +44,28 @@ export const dubaiFeatured = {
 export const dubaiVenues: DubaiVenue[] = [
   {
     id: "armani-burj",
-    name: "Burj Khalifa Emaar Armani Hotel Dubai",
+    name: "Burj Khalifa by Emaar (Armani Hotel Dubai)",
     district: "Downtown Dubai",
     image: "/media/dubai/armani-burj-khalifa.jpg",
     position: "center 30%",
   },
   {
     id: "vida-downtown",
-    name: "Vida Downtown Dubai",
+    name: "Vida Hotel Downtown Dubai",
     district: "Downtown Dubai",
     image: "/media/dubai/vida-downtown.jpg",
     position: "center 40%",
   },
   {
     id: "manzil-downtown",
-    name: "Manzil Downtown Dubai",
+    name: "Manzil Hotel Downtown Dubai",
     district: "Downtown Dubai",
     image: "/media/dubai/manzil-downtown.jpg",
     position: "center center",
   },
   {
     id: "palace-downtown",
-    name: "Palace Downtown Dubai",
+    name: "Palace Hotel Downtown Dubai",
     district: "Downtown Dubai",
     image: "/media/dubai/palace-downtown.jpg",
     position: "center 45%",
@@ -79,14 +79,14 @@ export const dubaiVenues: DubaiVenue[] = [
   },
   {
     id: "address-dubai-mall",
-    name: "Address Dubai Mall",
+    name: "Address Hotel Dubai Mall",
     district: "Downtown Dubai",
     image: "/media/dubai/address-dubai-mall.jpg",
     position: "center center",
   },
   {
     id: "address-boulevard",
-    name: "Address Boulevard Dubai",
+    name: "Address Hotel Boulevard Dubai",
     district: "Downtown Dubai",
     image: "/media/dubai/address-boulevard.jpg",
     position: "center 40%",
@@ -100,7 +100,7 @@ export const dubaiVenues: DubaiVenue[] = [
   },
   {
     id: "kiza-difc",
-    name: "KIZA Restaurant, Dubai International Financial Centre (DIFC)",
+    name: "KIZA Restaurant (DIFC)",
     district: "DIFC",
     image: "/media/dubai/kiza-difc.jpg",
     position: "center 25%",
@@ -114,7 +114,7 @@ export const dubaiVenues: DubaiVenue[] = [
   },
   {
     id: "jumeirah-living-wtc",
-    name: "Jumeirah Living World Trade Centre Residence",
+    name: "Jumeirah Living World Trade Centre",
     district: "Trade Centre",
     image: "/media/dubai/jumeirah-living-wtc.jpg",
     position: "center 30%",
